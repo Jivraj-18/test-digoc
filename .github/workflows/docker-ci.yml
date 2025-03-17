@@ -29,3 +29,6 @@ jobs:
       - name: Push the image to Docker Hub
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/test:latest
+      - name: Trigger Webhook on Droplet
+        run: |
+          curl -X POST http://143.110.240.19:/5000/webhook
